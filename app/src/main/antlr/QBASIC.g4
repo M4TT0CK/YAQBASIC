@@ -14,14 +14,21 @@ line
     ;
 
 statement
-    : 'PRINT' expression              #PrintStatement
-    | 'LPRINT' printList              #LPrintStatement
-    | 'BEEP'                          #BeepStatement
-    | 'CLEAR'                         #ClearStatement
-    | 'CLS'                           #ClearScreenStatement
-    | 'GOTO' expression               #GotoStatement
-    | 'GOSUB' expression              #GosubStatement
-    | 'LET' varName '=' expression    #AssignmentStatement
+    : 'PRINT' expression (';' expression)*                       #PrintStatement
+    | 'LPRINT' printList                                         #LPrintStatement
+    | 'INPUT' (STRING ';')? varName                              #InputStatement
+    | 'BEEP'                                                     #BeepStatement
+    | 'CLEAR'                                                    #ClearStatement
+    | 'CLS'                                                      #ClearScreenStatement
+    | 'GOTO' expression                                          #GotoStatement
+    | 'GOSUB' expression                                         #GosubStatement
+    | 'DEF' 'FN' FUNCTION_NAME '('functionArgs?')' '=' statement #FunctionStatement
+    | 'LET' varName '=' expression                               #AssignmentStatement
+    | expression                                                 #ExpressionStatement
+    ;
+
+functionArgs
+    : varName (',' varName)*
     ;
 
 varName
@@ -40,7 +47,9 @@ printList
     ;
 
 expression
-    : (STRING | number)               #LiteralExpression
+    : (STRING | number)                   #LiteralExpression
+    | varName                             #ReferenceExpression
+    | FUNCTION_NAME '(' functionArgs? ')' #FunctionReferenceExpression
     ;
 
 number
@@ -188,8 +197,7 @@ SUBTRACT
     ;
 
 FUNCTION_NAME
-    : 'FN' [A-Z]
-    | [A-Z][A-Z][A-Z]
+    : ([a-z] | [A-Z] | [1-9])+
     ;
 
 WS

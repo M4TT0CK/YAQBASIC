@@ -3,13 +3,21 @@
  */
 package yaqbasic
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
-}
+import org.antlr.v4.runtime.CharStreams
+import org.antlr.v4.runtime.CommonTokenStream
+import org.antlr.v4.runtime.tree.ParseTreeWalker
+import listeners.Listener
+import listeners.QBASICLexer
+import listeners.QBASICParser
+import java.io.PrintWriter
 
-fun main() {
-    println(App().greeting)
+fun main(args: Array<String>) {
+    val parser = QBASICParser(CommonTokenStream(QBASICLexer(CharStreams.fromFileName(args[0]))))
+    val listener = Listener()
+    val walker = ParseTreeWalker()
+    val tree = parser.program()
+    walker.walk(listener, tree)
+
+
+    PrintWriter("/Users/james/Documents/git/YAQBASIC/app/src/qbasic/test.py").use { out -> out.println(listener.scriptString) }
 }
