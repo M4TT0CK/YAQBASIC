@@ -102,6 +102,13 @@ public interface QBASICVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpressionStatement(QBASICParser.ExpressionStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ConditionalStatement}
+	 * labeled alternative in {@link QBASICParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionalStatement(QBASICParser.ConditionalStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link QBASICParser#functionArgs}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -126,12 +133,54 @@ public interface QBASICVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrintList(QBASICParser.PrintListContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ExponentionalExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExponentionalExpression(QBASICParser.ExponentionalExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AdditiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdditiveExpression(QBASICParser.AdditiveExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ComparisonExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpression(QBASICParser.ComparisonExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ParentheticalExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitParentheticalExpression(QBASICParser.ParentheticalExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code PrintExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintExpression(QBASICParser.PrintExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code LiteralExpression}
 	 * labeled alternative in {@link QBASICParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitLiteralExpression(QBASICParser.LiteralExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ModExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModExpression(QBASICParser.ModExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ReferenceExpression}
 	 * labeled alternative in {@link QBASICParser#expression}.
@@ -146,6 +195,33 @@ public interface QBASICVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFunctionReferenceExpression(QBASICParser.FunctionReferenceExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ConjunctiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConjunctiveExpression(QBASICParser.ConjunctiveExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MultiplicativeExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplicativeExpression(QBASICParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code DisjunctiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDisjunctiveExpression(QBASICParser.DisjunctiveExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link QBASICParser#comparator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparator(QBASICParser.ComparatorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link QBASICParser#number}.
 	 * @param ctx the parse tree

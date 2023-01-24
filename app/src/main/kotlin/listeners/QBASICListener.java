@@ -162,6 +162,18 @@ public interface QBASICListener extends ParseTreeListener {
 	 */
 	void exitExpressionStatement(QBASICParser.ExpressionStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ConditionalStatement}
+	 * labeled alternative in {@link QBASICParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalStatement(QBASICParser.ConditionalStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ConditionalStatement}
+	 * labeled alternative in {@link QBASICParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalStatement(QBASICParser.ConditionalStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link QBASICParser#functionArgs}.
 	 * @param ctx the parse tree
 	 */
@@ -202,6 +214,66 @@ public interface QBASICListener extends ParseTreeListener {
 	 */
 	void exitPrintList(QBASICParser.PrintListContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ExponentionalExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterExponentionalExpression(QBASICParser.ExponentionalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ExponentionalExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitExponentionalExpression(QBASICParser.ExponentionalExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code AdditiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAdditiveExpression(QBASICParser.AdditiveExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code AdditiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAdditiveExpression(QBASICParser.AdditiveExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ComparisonExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonExpression(QBASICParser.ComparisonExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ComparisonExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonExpression(QBASICParser.ComparisonExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ParentheticalExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterParentheticalExpression(QBASICParser.ParentheticalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ParentheticalExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitParentheticalExpression(QBASICParser.ParentheticalExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code PrintExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintExpression(QBASICParser.PrintExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code PrintExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintExpression(QBASICParser.PrintExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code LiteralExpression}
 	 * labeled alternative in {@link QBASICParser#expression}.
 	 * @param ctx the parse tree
@@ -213,6 +285,18 @@ public interface QBASICListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLiteralExpression(QBASICParser.LiteralExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ModExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterModExpression(QBASICParser.ModExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ModExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitModExpression(QBASICParser.ModExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ReferenceExpression}
 	 * labeled alternative in {@link QBASICParser#expression}.
@@ -237,6 +321,52 @@ public interface QBASICListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunctionReferenceExpression(QBASICParser.FunctionReferenceExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ConjunctiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterConjunctiveExpression(QBASICParser.ConjunctiveExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ConjunctiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitConjunctiveExpression(QBASICParser.ConjunctiveExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code MultiplicativeExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplicativeExpression(QBASICParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code MultiplicativeExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplicativeExpression(QBASICParser.MultiplicativeExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code DisjunctiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterDisjunctiveExpression(QBASICParser.DisjunctiveExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code DisjunctiveExpression}
+	 * labeled alternative in {@link QBASICParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitDisjunctiveExpression(QBASICParser.DisjunctiveExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link QBASICParser#comparator}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparator(QBASICParser.ComparatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link QBASICParser#comparator}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparator(QBASICParser.ComparatorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link QBASICParser#number}.
 	 * @param ctx the parse tree

@@ -25,10 +25,11 @@ statement
     | 'DEF' 'FN' FUNCTION_NAME '('functionArgs?')' '=' statement #FunctionStatement
     | 'LET' varName '=' expression                               #AssignmentStatement
     | expression                                                 #ExpressionStatement
+    | 'IF' expression 'THEN' expression ('ELSE' expression)?     #ConditionalStatement
     ;
 
 functionArgs
-    : varName (',' varName)*
+    : expression (',' expression)*
     ;
 
 varName
@@ -47,9 +48,22 @@ printList
     ;
 
 expression
-    : (STRING | number)                   #LiteralExpression
-    | varName                             #ReferenceExpression
-    | FUNCTION_NAME '(' functionArgs? ')' #FunctionReferenceExpression
+    : (STRING | number)                    #LiteralExpression
+    | varName                              #ReferenceExpression
+    | FUNCTION_NAME '(' functionArgs? ')'  #FunctionReferenceExpression
+    | expression '^' expression            #ExponentionalExpression
+    | expression ('+' | '-') expression    #AdditiveExpression
+    | expression ('*' | '/') expression    #MultiplicativeExpression
+    | expression 'MOD' expression          #ModExpression
+    | '(' expression ')'                   #ParentheticalExpression
+    | expression comparator expression     #ComparisonExpression
+    | expression 'AND' expression          #ConjunctiveExpression
+    | expression 'OR' expression           #DisjunctiveExpression
+    | 'PRINT' expression (';' expression)* #PrintExpression
+    ;
+
+comparator
+    : ('=' | '<>' | '<' | '<=' | '>' | '>=')
     ;
 
 number
@@ -162,6 +176,10 @@ IF
 
 THEN
     : 'THEN'
+    ;
+
+ELSE
+    : 'ELSE'
     ;
 
 TO
